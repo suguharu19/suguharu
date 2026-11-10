@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問合せ｜スグハル</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#007538;
+  --green-dark:#00582a;
+  --green-light:#e6f2ea;
+  --green-mid:#4d9670;
+  --yellow:#d4a843;
+  --yellow-light:#faf3e3;
+  --yellow-dark:#a9822f;
+  --text:#1a1a1a;
+  --text-mid:#555;
+  --text-light:#999;
+  --bg-gray:#f7f7f7;
+  --line:#e4e4e4;
+  --white:#fff;
+  --radius:12px;
+  --max:680px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans JP',sans-serif;
+  background:var(--bg-gray);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  font-size:15px;
+  line-height:1.8;
+}
+
+
+/* ===== PAGE HERO ===== */
+.page-hero{
+  background:var(--green);
+  padding:24px 24px 28px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:'';position:absolute;
+  top:-30px;right:-30px;
+  width:140px;height:140px;border-radius:50%;
+  background:rgba(255,255,255,0.06);
+}
+.page-hero::after{
+  content:'';position:absolute;
+  bottom:-50px;left:-20px;
+  width:120px;height:120px;border-radius:50%;
+  background:rgba(255,255,255,0.04);
+}
+.hero-icon{
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 10px;
+  position:relative;
+}
+.hero-icon svg{width:24px;height:24px;stroke:none;fill:#fff}
+.hero-title{
+  font-size:22px;font-weight:900;
+  color:#fff;letter-spacing:0.08em;
+  margin-bottom:6px;
+}
+.hero-catch{
+  font-size:13.5px;font-weight:500;
+  color:rgba(255,255,255,0.88);
+  line-height:1.6;
+  position:relative;
+}
+.hero-catch .yellow{
+  color:var(--yellow);font-weight:700;
+}
+
+/* ===== MAIN ===== */
+main{
+  max-width:var(--max);margin:0 auto;
+  padding:24px 16px 80px;
+}
+
+/* ===== SECTION TITLE ===== */
+.section-wrap{margin-bottom:28px}
+
+.section-heading{
+  text-align:center;
+  margin-bottom:16px;
+}
+.section-heading h2{
+  font-size:20px;font-weight:900;
+  color:var(--text);letter-spacing:0.04em;
+  display:inline-block;
+  padding-bottom:8px;
+  border-bottom:3px solid var(--yellow);
+}
+
+/* ===== CARD ===== */
+.card{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:0 2px 12px rgba(0,0,0,0.07);
+  overflow:hidden;
+  margin-bottom:16px;
+}
+.card:last-child{margin-bottom:0}
+
+.card-header{
+  background:var(--green-light);
+  padding:16px 20px;
+  display:flex;align-items:center;gap:12px;
+  border-bottom:1px solid #d4ebd4;
+}
+.card-header-icon{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.card-header-icon svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card-header-icon.fill-icon svg{stroke:none;fill:#fff}
+.card-header-title{
+  font-size:16px;font-weight:700;
+  color:var(--green-dark);
+  letter-spacing:0.04em;
+}
+
+.card-body{
+  padding:20px;
+}
+.card-body p{
+  font-size:14px;color:var(--text-mid);
+  line-height:2;margin-bottom:12px;
+}
+.card-body p:last-child{margin-bottom:0}
+.card-body strong{color:var(--text);font-weight:700}
+
+/* ===== HIGHLIGHT ===== */
+.highlight{
+  margin-top:16px;
+}
+.highlight-item{
+  background:var(--green-light);
+  border-radius:10px;
+  padding:20px 22px;
+}
+.highlight-item-text{
+  font-size:14px;color:var(--text-mid);line-height:2;
+}
+.highlight-item-text strong{color:var(--green-dark);font-weight:700}
+
+/* ===== TIME CARDS ===== */
+.time-cards{
+  display:flex;flex-direction:column;
+  gap:12px;margin-top:16px;
+}
+.time-card{
+  background:var(--green-light);
+  border:2px solid var(--green);
+  border-radius:10px;
+  padding:20px 22px;
+  display:flex;flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:10px;
+}
+.time-card-sport{
+  font-size:26px;font-weight:900;
+  color:var(--text);
+  letter-spacing:0.04em;
+}
+.time-card-time{
+  display:flex;align-items:baseline;gap:2px;
+}
+.time-card-prefix{
+  font-size:13px;font-weight:700;
+  color:var(--text-mid);
+}
+.time-card-num{
+  font-size:22px;font-weight:900;
+  color:var(--green);line-height:1;
+}
+.time-card-unit{
+  font-size:22px;font-weight:900;
+  color:var(--green);line-height:1;
+}
+.time-card-suffix{
+  font-size:13px;font-weight:700;
+  color:var(--text-mid);
+}
+
+/* ===== CONTACT BUTTONS ===== */
+.btn-stack{
+  display:flex;flex-direction:column;gap:12px;
+  margin-top:4px;
+}
+.btn{
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;padding:16px 24px;border-radius:50px;
+  font-size:14px;font-weight:700;letter-spacing:0.08em;
+  text-decoration:none;
+  transition:transform .18s,box-shadow .18s,opacity .18s;
+  cursor:pointer;
+}
+.btn:hover{transform:translateY(-2px);opacity:.9}
+.btn svg{width:18px;height:18px;flex-shrink:0}
+.btn-form{
+  background:var(--green);color:#fff;
+  box-shadow:0 4px 14px rgba(0,128,0,0.3);
+}
+.btn-form svg{stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn-line{
+  background:#06c755;color:#fff;
+  box-shadow:0 4px 14px rgba(6,199,85,0.3);
+}
+.btn-line svg{fill:#fff}
+
+/* ===== NOTICE ===== */
+.notice-card{
+  background:var(--yellow-light);
+  border:2px solid var(--yellow);
+  border-radius:var(--radius);
+  padding:20px;
+  margin-top:16px;
+  margin-bottom:24px;
+}
+.notice-card-title{
+  font-size:13px;font-weight:700;
+  color:var(--yellow-dark);
+  letter-spacing:0.1em;
+  margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+}
+.notice-card-title svg{
+  width:16px;height:16px;
+  fill:var(--yellow);flex-shrink:0;
+}
+.notice-list{list-style:none;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.notice-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:13.5px;color:var(--text-mid);line-height:1.7;
+}
+.notice-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;
+  background:var(--yellow);color:#fff;
+  font-size:10px;font-weight:700;
+  border-radius:50%;flex-shrink:0;
+  margin-top:2px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#fff;
+  border-top:3px solid var(--green);
+  padding:40px 20px;text-align:center;
+}
+.footer-logo-img{
+  height:56px;width:auto;
+  margin-bottom:12px;
+}
+.footer-address{
+  font-size:12px;color:var(--text-mid);
+  letter-spacing:0.08em;margin-bottom:8px;
+}
+.footer-copy{
+  font-size:11px;color:var(--text-light);
+  letter-spacing:0.1em;
+}
+</style>
+</head>
+<body>
+
+
+<div class="page-hero">
+  <div class="hero-icon">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.7 1.3 5.12 3.36 6.83L4.5 22l4.36-1.45C9.86 20.84 10.92 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2z"/></svg>
+  </div>
+  <h1 class="hero-title">お問合せ</h1>
+  <p class="hero-catch">
+    <span class="yellow">はじめてでも、大丈夫。</span><br>
+    安心してお任せください。
+  </p>
+</div>
+
+<main>
+
+  <!-- 初めてのお客さまへ -->
+  <div class="section-wrap">
+    <div class="section-heading">
+      <h2>初めてのお客さまへ</h2>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <span class="card-header-title">カウンセリングを行っています</span>
+      </div>
+      <div class="card-body">
+        <p>ガットを相談して決めたい方は、<strong>カウンセリングのお時間（10分ほど）</strong>を設けさせていただいています。</p>
+        <div class="highlight">
+          <div class="highlight-item">
+            <p class="highlight-item-text">「どういうプレーをしたいのか」「今なにで困っているのか」——そういったことを<strong>じっくりお聞き</strong>した上で、納得のいくガット選びをしていただきたいと思っているからです。<br>あなたのプレースタイルに合ったガットを一緒に見つけましょう。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 当日受け取りたい方へ -->
+  <div class="section-wrap">
+    <div class="section-heading">
+      <h2>当日受け取りたい方へ</h2>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+        </div>
+        <span class="card-header-title">必ず当日仕上げてお渡しします</span>
+      </div>
+      <div class="card-body">
+        <p>どんなに立て込んでいても、<strong>必ず当日仕上げてお渡し</strong>しております。安心してお越しくださいませ。</p>
+        <div class="time-cards">
+          <div class="time-card">
+            <span class="time-card-sport">テニス・ソフトテニス</span>
+            <div class="time-card-time">
+              <span class="time-card-prefix">閉店</span>
+              <span class="time-card-num">30</span>
+              <span class="time-card-unit">分前</span>
+              <span class="time-card-suffix">まで受け付け</span>
+            </div>
+          </div>
+          <div class="time-card">
+            <span class="time-card-sport">バドミントン</span>
+            <div class="time-card-time">
+              <span class="time-card-prefix">閉店</span>
+              <span class="time-card-num">40</span>
+              <span class="time-card-unit">分前</span>
+              <span class="time-card-suffix">まで受け付け</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- お問合せ先 -->
+  <div class="section-wrap">
+    <div class="section-heading">
+      <h2>お問合せ先</h2>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon fill-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.7 1.3 5.12 3.36 6.83L4.5 22l4.36-1.45C9.86 20.84 10.92 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2z"/></svg>
+        </div>
+        <span class="card-header-title">お気軽にご連絡ください</span>
+      </div>
+      <div class="card-body">
+        <p>ご不明な点はどんなことでも、お気軽にご連絡ください。可能な限り速やかにお返事いたします。<strong>営業時間外でもお返事します。</strong></p>
+        <div class="notice-card">
+          <p class="notice-card-title">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            お問合せの際にお知らせください
+          </p>
+          <ul class="notice-list">
+            <li><span class="notice-num">1</span>お名前（フルネーム）</li>
+            <li><span class="notice-num">2</span>競技の種類（テニス・ソフトテニス・バドミントン）</li>
+            <li><span class="notice-num">3</span>お問合せの方について（高校生以下 or 一般）</li>
+            <li><span class="notice-num">4</span>お問合せ内容</li>
+          </ul>
+        </div>
+        <div class="btn-stack">
+          <a class="btn btn-line" href="https://lin.ee/qUqrFo1" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.7 1.3 5.12 3.36 6.83L4.5 22l4.36-1.45C9.86 20.84 10.92 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2z"/></svg>
+            LINE で問い合わせる
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <img class="footer-logo-img" src="./logo.png" alt="スグハル">
+  <p class="footer-address">滋賀県草津市草津2-12-29</p>
+  <p class="footer-copy">© 2017 SUGUHARU ALL RIGHTS RESERVED.</p>
+</footer>
+
+</body>
+</html>

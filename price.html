@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>料金｜スグハル</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#007538;
+  --green-dark:#00582a;
+  --green-light:#e6f2ea;
+  --green-mid:#4d9670;
+  --yellow:#d4a843;
+  --yellow-light:#faf3e3;
+  --yellow-dark:#a9822f;
+  --text:#1a1a1a;
+  --text-mid:#555;
+  --text-light:#999;
+  --bg-gray:#f7f7f7;
+  --line:#e4e4e4;
+  --white:#fff;
+  --radius:12px;
+  --max:680px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans JP',sans-serif;
+  background:var(--bg-gray);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  font-size:15px;
+  line-height:1.8;
+}
+
+
+/* ===== PAGE HERO ===== */
+.page-hero{
+  background:var(--green);
+  padding:24px 24px 28px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:'';position:absolute;
+  top:-30px;right:-30px;
+  width:140px;height:140px;border-radius:50%;
+  background:rgba(255,255,255,0.06);
+}
+.page-hero::after{
+  content:'';position:absolute;
+  bottom:-50px;left:-20px;
+  width:120px;height:120px;border-radius:50%;
+  background:rgba(255,255,255,0.04);
+}
+.hero-icon{
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 10px;
+  position:relative;
+}
+.hero-icon svg{width:24px;height:24px;stroke:none;fill:#fff}
+.hero-title{
+  font-size:22px;font-weight:900;
+  color:#fff;letter-spacing:0.08em;
+  margin-bottom:6px;
+}
+.hero-catch{
+  font-size:13.5px;font-weight:500;
+  color:rgba(255,255,255,0.88);
+  line-height:1.6;
+  position:relative;
+}
+.hero-catch .yellow{
+  color:var(--yellow);font-weight:700;
+}
+
+/* ===== MAIN ===== */
+main{
+  max-width:var(--max);margin:0 auto;
+  padding:24px 16px 80px;
+}
+
+/* ===== TOC 目次 ===== */
+.toc{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px 22px;
+  margin-bottom:28px;
+}
+.toc-title{
+  font-size:13px;font-weight:700;
+  color:var(--green-dark);
+  letter-spacing:0.1em;
+  margin-bottom:12px;
+}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.toc-list a{
+  font-size:13.5px;color:var(--text-mid);
+  text-decoration:none;
+  display:flex;align-items:center;gap:6px;
+}
+.toc-list a::before{
+  content:'';
+  width:6px;height:6px;border-radius:50%;
+  background:var(--yellow);flex-shrink:0;
+}
+.toc-list a:hover{color:var(--green)}
+
+/* ===== SECTION TITLE ===== */
+.section-wrap{margin-bottom:28px}
+
+.section-heading{
+  text-align:center;
+  margin-bottom:16px;
+}
+.section-heading h2{
+  font-size:20px;font-weight:900;
+  color:var(--text);letter-spacing:0.04em;
+  display:inline-block;
+  padding-bottom:8px;
+  border-bottom:3px solid var(--yellow);
+}
+
+/* ===== CARD ===== */
+.card{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:0 2px 12px rgba(0,0,0,0.07);
+  overflow:hidden;
+  margin-bottom:16px;
+}
+.card:last-child{margin-bottom:0}
+
+.card-header{
+  background:var(--green-light);
+  padding:16px 20px;
+  display:flex;align-items:center;gap:12px;
+  border-bottom:1px solid #d4ebd4;
+}
+.card-header-icon{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.card-header-icon svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card-header-icon.fill-icon svg{stroke:none;fill:#fff}
+.card-header-title{
+  font-size:16px;font-weight:700;
+  color:var(--green-dark);
+  letter-spacing:0.04em;
+}
+
+.card-body{
+  padding:20px;
+}
+.card-body p{
+  font-size:14px;color:var(--text-mid);
+  line-height:2;margin-bottom:12px;
+}
+.card-body p:last-child{margin-bottom:0}
+.card-body strong{color:var(--text);font-weight:700}
+
+/* ===== 料金の式 ===== */
+.price-formula{
+  background:var(--green-light);
+  border-radius:10px;
+  padding:18px 20px;
+  text-align:center;
+  font-size:15px;
+  font-weight:700;
+  color:var(--green-dark);
+  line-height:1.8;
+  margin-bottom:4px;
+}
+.price-formula .plus{
+  color:var(--yellow-dark);
+  margin:0 4px;
+}
+
+/* ===== サブ見出し（・付き） ===== */
+.sub-heading{
+  display:flex;align-items:center;gap:8px;
+  font-size:15px;font-weight:700;
+  color:var(--green-dark);
+  margin:24px 0 12px;
+}
+.sub-heading:first-child{margin-top:0}
+.sub-heading::before{
+  content:'';
+  width:8px;height:8px;border-radius:50%;
+  background:var(--yellow);flex-shrink:0;
+}
+
+/* ===== 価格テーブル ===== */
+.price-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+}
+.price-table th{
+  background:var(--green-light);
+  color:var(--text);
+  padding:8px 6px;
+  font-weight:700;
+  text-align:left;
+  font-size:11px;
+  letter-spacing:0.02em;
+  border-bottom:2px solid #333;
+}
+.price-table th:first-child{border-radius:8px 0 0 0}
+.price-table th:last-child{border-radius:0 8px 0 0}
+.price-table td{
+  padding:8px 6px;
+  border-bottom:1px solid var(--line);
+  color:var(--text);
+  vertical-align:middle;
+}
+.price-table tr:last-child td{border-bottom:none}
+.price-table td.label{
+  font-weight:700;color:var(--text);
+  white-space:nowrap;
+}
+.price-table .num{
+  font-weight:700;color:var(--green);
+  font-size:13px;
+}
+.price-table .tax{
+  font-size:10px;color:var(--text-light);
+  display:block;margin-top:2px;
+}
+
+.table-wrap{
+  overflow-x:visible;
+  margin-bottom:16px;
+  border-radius:8px;
+  border:1px solid var(--line);
+}
+
+.table-wrap{
+  overflow-x:auto;
+  margin-bottom:16px;
+  border-radius:8px;
+  border:1px solid var(--line);
+}
+
+/* ===== 注記 ===== */
+.note-text{
+  font-size:12px;color:var(--text-light);
+  line-height:1.8;
+  margin-top:8px;
+  margin-bottom:16px;
+}
+
+/* ===== 価格バッジ並び ===== */
+.price-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding:12px 4px;
+  border-bottom:1px solid var(--line);
+  gap:12px;
+}
+.price-row:last-child{border-bottom:none}
+.price-row-label{
+  font-size:14px;color:var(--text);font-weight:500;
+  flex:1;
+}
+.price-row-value{
+  font-size:17px;font-weight:900;color:var(--green);
+  white-space:nowrap;
+}
+.price-row-value .small{
+  font-size:11px;color:var(--text-light);font-weight:400;margin-left:4px;
+}
+
+/* ===== ハイライト ===== */
+.highlight{margin-top:16px}
+.highlight-item{
+  background:var(--green-light);
+  border-radius:10px;
+  padding:18px 20px;
+}
+.highlight-item-text{
+  font-size:13.5px;color:var(--text-mid);line-height:1.9;
+}
+.highlight-item-text strong{color:var(--green-dark);font-weight:700}
+
+/* ===== その他料金リスト ===== */
+.other-list{
+  display:flex;flex-direction:column;gap:10px;
+}
+.other-item{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:12px;
+  padding:12px 14px;
+  background:var(--bg-gray);
+  border-radius:8px;
+}
+.other-item-label{font-size:13.5px;color:var(--text);flex:1}
+.other-item-value{font-size:14px;font-weight:700;color:var(--green);white-space:nowrap}
+.other-item-value .tax-sub{font-size:11px;font-weight:400;color:var(--text);}
+
+/* ===== 会員特典リスト ===== */
+.benefit-list{
+  display:flex;flex-direction:column;gap:12px;
+}
+.benefit-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:14px 16px;
+  background:var(--yellow-light);
+  border:1px solid #f0e0c0;
+  border-radius:10px;
+}
+.benefit-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;
+  background:var(--yellow);color:#fff;
+  font-size:13px;font-weight:900;
+  flex-shrink:0;
+  margin-top:3px;
+}
+.benefit-text{
+  font-size:13.5px;color:var(--text);line-height:1.8;
+}
+.benefit-text strong{color:var(--green)}
+
+/* ===== 会員費ハイライト ===== */
+.fee-highlight{
+  background:var(--green);
+  border-radius:var(--radius);
+  padding:28px 24px;
+  text-align:center;
+}
+.fee-label{
+  font-size:12px;color:rgba(255,255,255,0.8);
+  letter-spacing:0.1em;margin-bottom:8px;
+}
+.fee-num{
+  font-size:36px;font-weight:900;color:#fff;
+  line-height:1;
+}
+.fee-tax{
+  font-size:12px;color:rgba(255,255,255,0.7);
+  margin-top:6px;
+}
+
+/* ===== リンクボタン ===== */
+.link-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--green);font-weight:700;
+  text-decoration:none;
+  border-bottom:2px solid var(--yellow);
+  padding-bottom:2px;
+  font-size:14px;
+}
+.link-btn:hover{opacity:.8}
+
+/* ===== 区切り線 ===== */
+.divider{
+  border:none;border-top:1px dashed var(--line);
+  margin:24px 0;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#fff;
+  border-top:3px solid var(--green);
+  padding:40px 20px;text-align:center;
+}
+.footer-logo-img{
+  height:56px;width:auto;
+  margin-bottom:12px;
+}
+.footer-address{
+  font-size:12px;color:var(--text-mid);
+  letter-spacing:0.08em;margin-bottom:8px;
+}
+.footer-copy{
+  font-size:11px;color:var(--text-light);
+  letter-spacing:0.1em;
+}
+</style>
+</head>
+<body>
+
+
+<div class="page-hero">
+  <div class="hero-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.59 13.41L13.42 20.58a2 2 0 0 1-2.83 0L2.59 12.59A2 2 0 0 1 2 11.17V4a2 2 0 0 1 2-2h7.17a2 2 0 0 1 1.42.59l8.18 8.18a2 2 0 0 1-.18 2.64z"/>
+      <circle cx="7.5" cy="7.5" r="1.5" fill="#fff" stroke="none"/>
+    </svg>
+  </div>
+  <h1 class="hero-title">料金</h1>
+</div>
+
+<main>
+
+  <!-- 目次 -->
+  <div class="toc">
+    <p class="toc-title">目次</p>
+    <ul class="toc-list">
+      <li><a href="#price">料金について</a></li>
+      <li><a href="#member">会員について</a></li>
+    </ul>
+  </div>
+
+  <!-- 料金について -->
+  <div class="section-wrap" id="price">
+    <div class="section-heading">
+      <h2>料金について</h2>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon fill-icon">
+          <svg viewBox="0 0 1024 1024" fill="#fff"><g><g><path d="M437.9,209.9c17.7,12.2,39.1,19.3,62.1,19.3c23.1,0,44.5-7.2,62.1-19.3c-16.8-14.1-38.5-22.7-62.1-22.7C476.4,187.2,454.7,195.8,437.9,209.9z"/><path d="M562.1,29.4C544.4,17.2,523.1,10,500,10c-23.1,0-44.5,7.2-62.1,19.4C454.7,43.5,476.4,52,500,52C523.6,52,545.3,43.5,562.1,29.4z"/><path d="M418.5,192.7c21.7-19.4,50.2-31.3,81.5-31.3c31.3,0,59.8,11.9,81.5,31.3c17.4-19.4,28.1-45,28.1-73.1c0-28.1-10.7-53.7-28.1-73.1c-21.7,19.4-50.2,31.3-81.5,31.3c-31.3,0-59.8-11.9-81.5-31.3c-17.4,19.4-28.1,45-28.1,73.1C390.3,147.8,401,173.3,418.5,192.7z"/><path d="M972.7,889.5L745.4,662.2c-7.8-7.8-17.2-12.7-27.2-15.2c-56.1-70.3-68.3-148.3-70.8-179.7c19.2-81.6,1.4-176.6-51.2-260.6c-19.8,21.9-46.9,37-77.6,41.4l11.2,11.2l-50.6,50.6l-50.6-50.6l20.2-20.1c-10.3-4.4-19.9-10.2-28.6-17L406,236.5L355.5,186l22.4-22.4c-4.3-12-6.9-24.8-7.5-38.1l-37.7,37.6l-50.6-50.6L328.7,66c3.6,0.8,7.2,1.9,10.8,2.8l32,32c3.4-23.5,13-45,27.2-62.7C283.9-9.4,160,2.9,81.4,81.4C-30.3,193.2-8.5,396.8,130,535.3c98.4,98.4,229.6,137.6,337.4,112.1c31.4,2.4,109,14.5,179.5,70.8c2.5,9.9,7.4,19.4,15.2,27.2l227.3,227.3c23,23,60.3,23,83.3,0C995.7,949.7,995.7,912.5,972.7,889.5z M603.9,434.4L575.5,406l29.9-29.8C607.1,396.1,606.6,415.6,603.9,434.4z M595.4,471.5c-7.8,23.9-19.8,45.9-36,65.1l-57.2-57.2l50.6-50.5L595.4,471.5z M552.8,282.1l43.7,43.7c1,3.6,2,7.2,2.8,10.8l-46.6,46.6l-50.6-50.6L552.8,282.1z M530,406l-50.6,50.6L428.8,406l50.6-50.5L530,406z M236.5,406l-50.6,50.6l-50.6-50.5l50.6-50.6L236.5,406z M135.4,259.3l50.6-50.6l50.6,50.6L186,309.9L135.4,259.3z M208.7,332.7l50.6-50.6l50.6,50.6l-50.6,50.6L208.7,332.7z M332.7,355.5l50.6,50.6l-50.6,50.6L282.1,406L332.7,355.5z M406,428.8l50.6,50.6L406,529.9l-50.6-50.6L406,428.8z M456.6,332.7L406,383.2l-50.6-50.6l50.6-50.6L456.6,332.7z M332.7,208.8l50.6,50.6l-50.6,50.6l-50.6-50.6L332.7,208.8z M309.9,185.9l-50.6,50.6l-50.6-50.6l50.6-50.6L309.9,185.9z M289.1,60l-29.8,29.8l-28.4-28.4C249.7,58.7,269.3,58.3,289.1,60z M193.9,70l42.6,42.6L186,163.2L128.8,106C148,89.8,170,77.8,193.9,70z M106,128.8l57.2,57.2l-50.5,50.6l-42.7-42.6C77.7,170,89.7,148,106,128.8z M61.4,230.9l28.4,28.4L60,289.2C58.2,269.3,58.7,249.7,61.4,230.9z M66,328.7l46.6-46.6l50.5,50.6l-50.6,50.6l-43.7-43.7C67.9,335.9,66.8,332.3,66,328.7z M153,489.6c-16.7-18.2-31.5-37.4-43.9-57.3l3.5-3.5l50.6,50.6L153,489.6z M233,556.2c-19.9-12.3-39.1-27.1-57.3-43.9l10.2-10.2l50.6,50.6L233,556.2z M208.7,479.4l50.6-50.6l50.6,50.6l-50.6,50.5L208.7,479.4z M325.8,596.5l-43.7-43.8l50.6-50.6l50.6,50.6l-46.6,46.6C333.1,598.5,329.4,597.4,325.8,596.5z M376.2,605.4l29.9-29.9l28.4,28.4C415.6,606.6,396.1,607.1,376.2,605.4z M471.5,595.4l-42.6-42.6l50.6-50.6l57.2,57.2C517.3,575.6,495.3,587.6,471.5,595.4z M662.1,662.2c-3,3-5.6,6.3-7.8,9.8c-39.8-27.8-80.3-44.2-114.5-53.6c15.8-9.6,30.6-21,44-34.4c13.4-13.4,24.8-28.2,34.4-44c9.4,34.2,25.8,74.7,53.6,114.5C668.4,656.6,665.2,659.2,662.1,662.2z"/></g></g></svg>
+        </div>
+        <span class="card-header-title">張替え料金について</span>
+      </div>
+      <div class="card-body">
+        <div class="price-formula" style="font-size:13px;padding:14px 12px;">
+          張替え技術料 <span class="plus" style="color:#1a1a1a;margin:0 2px;">＋</span> ガット代 <span class="plus" style="color:#1a1a1a;margin:0 2px;">＋</span> オプション（お急ぎ仕上げ）
+        </div>
+        <p style="text-align:center;font-size:13px;color:var(--text);margin-top:8px;">この3つの合計で張替え料金が決まります。</p>
+
+        <hr class="divider">
+
+        <p class="sub-heading">張替え技術料</p>
+        <div class="table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th colspan="2">区分</th>
+                <th style="white-space:nowrap;">テニス・<br>ソフトテニス</th>
+                <th style="white-space:nowrap;">バドミントン</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2" style="writing-mode:vertical-rl;text-align:center;font-size:16px;font-weight:700;color:var(--text);background:var(--green-light);border-right:2px solid #333;border-bottom:2px solid #333;width:32px;padding:16px 6px;">会員</td>
+                <td class="label" style="white-space:nowrap;">学生<br><span style="font-size:11px;color:var(--text-light);font-weight:400;">専門・大学生まで</span></td>
+                <td><span class="num">1,300</span><span class="num">円</span><span class="tax">税込1,430円</span></td>
+                <td><span class="num">1,400</span><span class="num">円</span><span class="tax">税込1,540円</span></td>
+              </tr>
+              <tr>
+                <td class="label">一般</td>
+                <td><span class="num">1,600</span><span class="num">円</span><span class="tax">税込1,760円</span></td>
+                <td><span class="num">1,700</span><span class="num">円</span><span class="tax">税込1,870円</span></td>
+              </tr>
+              <tr>
+                <td rowspan="2" style="writing-mode:vertical-rl;text-align:center;font-size:16px;font-weight:700;color:var(--text);background:var(--green-light);border-right:2px solid #333;width:32px;padding:16px 6px;">非会員</td>
+                <td class="label" style="white-space:nowrap;border-top:2px solid #333;">学生<br><span style="font-size:11px;color:var(--text-light);font-weight:400;">専門・大学生まで</span></td>
+                <td style="border-top:2px solid #333;"><span class="num">1,600</span><span class="num">円</span><span class="tax">税込1,760円</span></td>
+                <td style="border-top:2px solid #333;"><span class="num">1,700</span><span class="num">円</span><span class="tax">税込1,870円</span></td>
+              </tr>
+              <tr>
+                <td class="label">一般</td>
+                <td><span class="num">1,900</span><span class="num">円</span><span class="tax">税込2,090円</span></td>
+                <td><span class="num">2,000</span><span class="num">円</span><span class="tax">税込2,200円</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="divider">
+
+        <p class="sub-heading">ガット代</p>
+        <p style="font-size:14px;color:var(--text-mid);line-height:1.9;margin-bottom:16px;">店頭でガットを購入いただけます。手持ちのガットを使いたい場合は、お持ち込みいただくこともできます。</p>
+
+        <!-- 購入いただく場合 -->
+        <p style="font-size:13px;font-weight:700;color:var(--text-mid);letter-spacing:0.06em;margin-bottom:8px;padding-left:4px;">▶ 購入いただく場合</p>
+        <div style="overflow-x:auto;border-radius:8px;border:1px solid var(--line);margin-bottom:4px;">
+          <table style="width:100%;border-collapse:collapse;font-size:12px;">
+            <thead>
+              <tr>
+                <th style="background:var(--green-light);color:var(--text);padding:8px 10px;font-weight:700;text-align:center;font-size:11px;border-bottom:2px solid #333;width:70px;">区分</th>
+                <th style="background:var(--green-light);color:var(--text);padding:8px 10px;font-weight:700;text-align:center;font-size:11px;border-bottom:2px solid #333;">ガット代</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:10px;font-weight:700;font-size:13px;background:var(--green-light);border-right:2px solid #333;border-bottom:2px solid #333;white-space:nowrap;color:var(--text);text-align:center;">会員</td>
+                <td style="padding:10px;font-size:13px;color:var(--text-mid);border-bottom:2px solid #333;text-align:center;">定価より<strong style="color:var(--green);">10%OFF</strong><br>（割引上限は300円（税込330円））</td>
+              </tr>
+              <tr>
+                <td style="padding:10px;font-weight:700;font-size:13px;background:var(--green-light);border-right:2px solid #333;white-space:nowrap;color:var(--text);text-align:center;vertical-align:middle;">非会員</td>
+                <td style="padding:10px;font-size:13px;color:var(--text-mid);text-align:center;vertical-align:middle;height:calc(13px * 1.8 * 2 + 26px);">定価</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note-text">※ガットの価格帯（定価）は、テニス2,200〜4,300円、ソフトテニス2,100〜2,500円、バドミントン1,400〜1,700円です。</p>
+
+        <!-- 持ち込む場合 -->
+        <p style="font-size:13px;font-weight:700;color:var(--text-mid);letter-spacing:0.06em;margin-top:20px;margin-bottom:8px;padding-left:4px;">▶ 持ち込む場合</p>
+        <div style="overflow-x:visible;border-radius:8px;border:1px solid var(--line);margin-bottom:4px;">
+          <table style="width:100%;border-collapse:collapse;font-size:12px;">
+            <thead>
+              <tr>
+                <th style="background:var(--green-light);color:var(--text);padding:8px 6px;font-weight:700;text-align:center;font-size:11px;border-bottom:2px solid #333;">区分</th>
+                <th style="background:var(--green-light);color:var(--text);padding:8px 6px;font-weight:700;text-align:center;font-size:11px;border-bottom:2px solid #333;">テニス</th>
+                <th style="background:var(--green-light);color:var(--text);padding:8px 6px;font-weight:700;text-align:center;font-size:11px;border-bottom:2px solid #333;">ソフトテニス</th>
+                <th style="background:var(--green-light);color:var(--text);padding:8px 6px;font-weight:700;text-align:center;font-size:11px;border-bottom:2px solid #333;">バドミントン</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:10px 6px;text-align:center;font-weight:700;background:var(--green-light);border-right:2px solid #333;border-bottom:2px solid #333;font-size:13px;">会員</td>
+                <td style="padding:10px 6px;text-align:center;border-bottom:2px solid #333;"><span style="font-weight:700;color:var(--green);font-size:13px;">1,300円</span><span style="display:block;font-size:10px;color:var(--text-light);">税込1,430円</span></td>
+                <td style="padding:10px 6px;text-align:center;border-bottom:2px solid #333;"><span style="font-weight:700;color:var(--green);font-size:13px;">1,000円</span><span style="display:block;font-size:10px;color:var(--text-light);">税込1,100円</span></td>
+                <td style="padding:10px 6px;text-align:center;border-bottom:2px solid #333;"><span style="font-weight:700;color:var(--green);font-size:13px;">700円</span><span style="display:block;font-size:10px;color:var(--text-light);">税込770円</span></td>
+              </tr>
+              <tr>
+                <td style="padding:10px 6px;text-align:center;font-weight:700;background:var(--green-light);border-right:2px solid #333;font-size:13px;">非会員</td>
+                <td style="padding:10px 6px;text-align:center;"><span style="font-weight:700;color:var(--green);font-size:13px;">1,600円</span><span style="display:block;font-size:10px;color:var(--text-light);">税込1,760円</span></td>
+                <td style="padding:10px 6px;text-align:center;"><span style="font-weight:700;color:var(--green);font-size:13px;">1,300円</span><span style="display:block;font-size:10px;color:var(--text-light);">税込1,430円</span></td>
+                <td style="padding:10px 6px;text-align:center;"><span style="font-weight:700;color:var(--green);font-size:13px;">1,000円</span><span style="display:block;font-size:10px;color:var(--text-light);">税込1,100円</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note-text">※ナチュラルガット、ナチュラルガットのハイブリッドの持込み料は種類ごとに計算させていただきます。持込みされる場合はお問い合わせください。</p>
+
+        <hr class="divider">
+
+        <p class="sub-heading">お急ぎ仕上げ</p>
+        <p style="font-size:13.5px;color:var(--text-mid);margin-bottom:12px;">お急ぎ仕上げ（当日・翌日受け取り）の場合は、お急ぎ料（即張り料）をいただいています。</p>
+        <div class="other-list">
+          <div class="other-item">
+            <span class="other-item-label">当日受け取り</span>
+            <span class="other-item-value">600円<span class="tax-sub">（税込660円）</span></span>
+          </div>
+          <div class="other-item">
+            <span class="other-item-label">翌日受け取り</span>
+            <span class="other-item-value">400円<span class="tax-sub">（税込440円）</span></span>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- その他の料金について -->
+        <div class="card-header" style="margin:-20px -20px 20px;border-radius:0;">
+          <div class="card-header-icon">
+            <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <span class="card-header-title">その他の料金について</span>
+        </div>
+        <p style="font-size:14px;color:var(--text-mid);line-height:1.9;margin-bottom:20px;">グリップやグロメットなどメンテナンスをお任せください！</p>
+
+        <p class="sub-heading">グリップの巻き替え技術料</p>
+        <div class="other-list" style="margin-bottom:20px;">
+          <div class="other-item">
+            <span class="other-item-label">オーバーグリップ</span>
+            <span class="other-item-value">500円<span class="tax-sub">（税込550円）</span></span>
+          </div>
+          <div class="other-item">
+            <span class="other-item-label">リプレイスメントグリップ（通常）</span>
+            <span class="other-item-value">1,000円<span class="tax-sub">（税込1,100円）</span></span>
+          </div>
+          <div class="other-item">
+            <span class="other-item-label">リプレイスメントグリップ（革製）</span>
+            <span class="other-item-value">1,500円<span class="tax-sub">（税込1,650円）</span></span>
+          </div>
+        </div>
+
+        <p class="sub-heading">グロメットの交換技術料</p>
+        <div class="other-list">
+          <div class="other-item">
+            <span class="other-item-label">テニス・ソフトテニス</span>
+            <span class="other-item-value">3,000円<span class="tax-sub">（税込3,300円）</span></span>
+          </div>
+          <div class="other-item" style="align-items:flex-start;">
+            <span class="other-item-label">バドミントン（1箇所当たり）</span>
+            <span class="other-item-value" style="display:flex;flex-direction:column;align-items:flex-start;white-space:nowrap;"><span>300円〜500円</span><span style="font-size:11px;font-weight:400;color:var(--text);">（税込330円〜550円）</span></span>
+          </div>
+        </div>
+        <p class="note-text">※グロメット代金についてはラケットによって異なります。</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 会員について -->
+  <div class="section-wrap" id="member">
+    <div class="section-heading">
+      <h2>会員について</h2>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <p style="font-size:14px;color:var(--text-mid);line-height:2;">張替えはメンテナンスです。定期的に張替えないといいプレーを発揮できません。<br>「定期的な張替えの負担を減らしたい」、「お得に便利に使ってほしい」という思いから、会員特典を用意しています。</p>
+        <p class="note-text" style="margin-top:8px;">※会員に入らなくても張替えは可能です。</p>
+      </div>
+    </div>
+
+    <!-- 会員特典の内容 -->
+    <div class="card" id="benefit">
+      <div class="card-header">
+        <div class="card-header-icon fill-icon">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 15.4L8.24 17.67l1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28z"/><circle cx="12" cy="12" r="10" fill="none" stroke="#fff" stroke-width="1.5"/></svg>
+        </div>
+        <span class="card-header-title">会員特典の内容</span>
+      </div>
+      <div class="card-body">
+        <p style="font-size:14px;color:var(--text-mid);margin-bottom:16px;">6つの特典を用意しています。</p>
+        <div class="benefit-list">
+          <div class="benefit-item">
+            <span class="benefit-num">1</span>
+            <p class="benefit-text">張替え技術料 <strong>300円OFF</strong>（税込330円OFF）</p>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-num">2</span>
+            <p class="benefit-text">ガット代<strong>10%OFF</strong><br><span style="font-size:12px;color:var(--text-light);">※上限300円OFF（税込330円OFF）</span></p>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-num">3</span>
+            <p class="benefit-text">ガット持込み料 <strong>300円OFF</strong>（税込330円OFF）</p>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-num">4</span>
+            <p class="benefit-text">用具購入（ラケット・シューズ・ウェア・バッグ）<strong>20%OFF</strong><br><span style="font-size:12px;color:var(--text-light);">※用具は取り寄せです。</span><br><span style="font-size:12px;color:var(--text-light);">※ソフトテニス・バドミントンのラケットは15%OFF、一部メーカーのシューズは15%OFF</span></p>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-num">5</span>
+            <p class="benefit-text">張替え予約ができます<br><span style="font-size:12px;color:var(--text-mid);">来店前の受け取り時間を指定できます</span></p>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-num">6</span>
+            <p class="benefit-text">ロッカーを使えます<br><span style="font-size:12px;color:var(--text-mid);">営業時間外でラケットのお預けと受け取りにご使用できます（使用料はお預け時は無料、受け取り時は300円（税込330円）です）。</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 会員費について -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon">
+          <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        </div>
+        <span class="card-header-title">会員費について</span>
+      </div>
+      <div class="card-body">
+        <p style="font-size:14px;color:var(--text-mid);line-height:2;">会員費は<strong style="color:var(--green);font-weight:700;">1,000円</strong>（税込1,100円）です。<br>会員は自動更新ではありません。期限が切れたら会員資格が失効するだけです。</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <img class="footer-logo-img" src="./logo.png" alt="スグハル">
+  <p class="footer-address">滋賀県草津市草津2-12-29</p>
+  <p class="footer-copy">© 2017 SUGUHARU ALL RIGHTS RESERVED.</p>
+</footer>
+
+</body>
+</html>
